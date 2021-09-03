@@ -15,8 +15,10 @@ const searchBook =()=>{
 };
 
 const displayBook =(books)=>{
+    console.log(books)
     const displayFont= document.getElementById("customs");
-    showData.innerHTML=`${books.docs.length}`;
+    showData.innerHTML=`${books.docs.length} out of ${books.numFound}`;
+    
     if(books.docs.length === 0){
         error.innerHTML=`We can't get any data!!`;
     };
@@ -35,12 +37,12 @@ const displayBook =(books)=>{
             <div class="card h-100">
                 <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">${book.title}</h5>
-                    <p class="card-text">${book.author_name}</p>
-                    <p class="card-text">${book.publisher[0]}</p>
+                    <h5 class="card-title">Book Name: ${book.title}</h5>
+                    <p class="card-text">Author Name: ${book.author_name}</p>
+                    <p class="card-text">Publiher: ${book.publisher[0]}</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-mute">${book.first_publish_year}</small>
+                    <small class="text-mute">Publish year: ${book.first_publish_year}</small>
                 </div>
             </div>
         </div>
